@@ -18,5 +18,9 @@
 # == YOUR CODE ==
 
 def is_valid(password):
-    pass # Your code goes here (delete the `pass`)
+    sym_list = ["!","@","$","%","&"]
+    if len(password) > 7 and any(i in password for i in sym_list):
+        return True
+    else:
+        return False
 
