@@ -37,6 +37,9 @@ def add_ten(number):
 #   Call:    say_hello()
 #   Returns: "hello"
 
+def say_hello():
+    return("hello")
+
 
 
 # Method name: say_goodbye
@@ -46,6 +49,9 @@ def add_ten(number):
 #   Call:    say_goodbye()
 #   Returns: "goodbye"
 
+def say_goodbye():
+    return("goodbye")
+
 
 
 # Method name: say_hello_to
@@ -54,6 +60,9 @@ def add_ten(number):
 # Example:
 #   Call:    say_hello_to("Sam")
 #   Returns: "Hello, Sam!"
+
+def say_hello_to(string):
+    return(f"Hello, {string}!")
 
 
 
@@ -65,6 +74,10 @@ def add_ten(number):
 #   Returns: "Goodbye, Sam!"
 
 
+def say_goodbye_to(string):
+    return(f"Goodbye, {string}!")
+
+
 
 # Method name: square
 # Purpose: multiplies the given number by itself
@@ -72,6 +85,9 @@ def add_ten(number):
 # Example:
 #   Call:    square(5)
 #   Returns: 25
+
+def square(num):
+    return(num**2)
 
 
 
@@ -84,6 +100,13 @@ def add_ten(number):
 #   Call:    divisible_by_three(10)
 #   Returns: False
 
+def divisible_by_three(num):
+    if num % 3 == 0:
+        return(True)
+    else:
+        return(False)
+
+
 
 
 # Method name: add
@@ -92,6 +115,10 @@ def add_ten(number):
 # Example:
 #   Call:    add(5, 10)
 #   Returns: 15
+    
+def add(num,num1):
+    return(num+num1)
+
 
 
 
@@ -101,6 +128,10 @@ def add_ten(number):
 # Example:
 #   Call:    multiply(5, 10)
 #   Returns: 50
+
+def multiply(num,num1):
+    return(num*num1)
+
 
 
 
@@ -112,6 +143,9 @@ def add_ten(number):
 #   Returns: 15
 # Note: return value should be a number, not a string
 
+def add_number_strings(str1,str2):
+    return(int(str1)+int(str2))
+
 
 
 # Method name: multiply_number_strings
@@ -121,6 +155,9 @@ def add_ten(number):
 #   Call:    multiply_number_strings("5", "10")
 #   Returns: 50
 # Note: return value should be a number, not a string
+
+def multiply_number_strings(str1,str2):
+    return(int(str1)*int(str2))
 
 
 
@@ -135,6 +172,12 @@ def add_ten(number):
 #   Call:    both_odd(6, 10)
 #   Returns: False
 
+def both_odd(num1,num2):
+    if num1 % 2 == 1 and num2 % 2 == 1:
+        return True
+    else:
+        return False
+
 
 
 # Method name: both_even
@@ -147,6 +190,12 @@ def add_ten(number):
 #   Returns: False
 #   Call:    both_even(5, 11)
 #   Returns: False
+    
+def both_even(num1,num2):
+    if num1 % 2 == 0 and num2 % 2 == 0:
+        return True
+    else:
+        return False
 
 
 
@@ -161,6 +210,11 @@ def add_ten(number):
 #   Call:    one_odd(4, 8)
 #   Returns: False
 
+def one_odd(num1,num2):
+    if num1 % 2 == 1 or num2 % 2 == 1:
+        return True
+    else:
+        return False
 
 
 # Method name: one_even
@@ -173,6 +227,12 @@ def add_ten(number):
 #   Returns: True
 #   Call:    one_even(5, 9)
 #   Returns: False
+    
+def one_even(num1,num2):
+    if num1 % 2 == 0 or num2 % 2 == 0:
+        return True
+    else:
+        return False
 
 
 
@@ -189,7 +249,15 @@ def add_ten(number):
 #   Returns: "This is a ..."
 #   Call:    truncate_string("Short")
 #   Returns: "Short"
+    
+def truncate_string(string):
+    if len(string) > 10:
+        return(string[0:10]+"...")
+    else:
+        return(string)
 
 
 
 # Congrats, you're done with this file, go back to the Challenges README.
+
+truncate_string("Oh what a joy to be alive!")
