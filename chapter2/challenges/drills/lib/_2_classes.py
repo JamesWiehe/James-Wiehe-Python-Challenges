@@ -271,8 +271,7 @@ class Cohort:
         duration = self.end_date - self.start_date
         return duration.days
 
-test = Cohort('June 2020', '2020-06-01', '2020-09-01')
-print(test.calculate_duration())
+
 
 
 
