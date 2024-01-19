@@ -53,7 +53,9 @@ class Greeter():
 #   > animal
 #   <Animal object at 0x7f8b8c0b8e80>
 
-
+class Animal():
+    def __init__(self):
+        pass
 
 # Class name: Vehicle
 # Purpose: a generic vehicle
@@ -65,7 +67,10 @@ class Greeter():
 #   > vehicle = Vehicle()
 #   > vehicle
 #   <Vehicle object at 0x7f8b8c0b8e80>
-
+    
+class Vehicle():
+    def __init__(self):
+        pass
 
 
 # Class name: Cat
@@ -80,7 +85,13 @@ class Greeter():
 #   > cat = Cat()
 #   > cat.speak()
 #   'miaow'
+    
+class Cat():
+    def __init__(self):
+        pass
 
+    def speak(self):
+        return ("miaow")
 
 
 # Class name: Dog
@@ -96,7 +107,11 @@ class Greeter():
 #   > dog.speak()
 #   'woof'
 
-
+class Dog():
+    def __init__(self):
+        pass
+    def speak(self):
+        return("woof")
 
 # Class name: StringFormatter
 # Purpose: transforms strings
@@ -116,7 +131,14 @@ class Greeter():
 #   > string_formatter.lower_case('HELLO')
 #   'hello'
 
+class StringFormatter():
+    def __init__(self):
+        pass
 
+    def block_caps(self,string):
+        return string.upper()
+    def lower_case(self,string):
+        return string.lower()
 
 # Class name: Calculator
 # Purpose: performs basic arithmetic
@@ -146,6 +168,17 @@ class Greeter():
 #   > calculator.divide(6, 2)
 #   3.0
 
+class Calculator():
+    def __init__(self):
+        pass
+    def add(self,num1,num2):
+        return num1+num2
+    def multiply(self,num1,num2):
+        return num1*num2
+    def subtract(self,num1,num2):
+        return num1-num2
+    def divide(self,num1,num2):
+        return num1/num2
 
 
 # Class name: Apprentice
@@ -171,6 +204,17 @@ class Greeter():
 #   'June 2030'
 #   > apprentice.format_details()
 #   'Rita Smith, June 2030'
+
+
+
+class Apprentice():
+    def __init__(self,name,cohort):
+        self.name = name
+        self.cohort = cohort
+
+    def format_details(self):
+        return(f"{self.name}, {self.cohort}")
+
 
 
 
@@ -204,6 +248,36 @@ class Greeter():
 #   datetime.date(2020, 9, 1)
 #   > cohort.calculate_duration()
 #   92
+
+class Cohort:
+    
+    def __init__(self,name,start_date,end_date):
+        self.name = name
+        
+        new_list_start = start_date.split("-")
+        int_list_start = []
+        for i in new_list_start:
+            int_list_start.append(int(i))
+        self.start_date = datetime.date(int_list_start[0],int_list_start[1],int_list_start[2])
+
+        new_list_end = end_date.split("-")
+        int_list_end = []
+        for i in new_list_end:
+            int_list_end.append(int(i))
+        self.end_date = datetime.date(int_list_end[0],int_list_end[1],int_list_end[2])
+
+    
+    def calculate_duration(self):
+        duration = self.end_date - self.start_date
+        return duration.days
+
+test = Cohort('June 2020', '2020-06-01', '2020-09-01')
+print(test.calculate_duration())
+
+
+
+
+
 
 
 
