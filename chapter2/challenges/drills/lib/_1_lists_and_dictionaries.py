@@ -22,6 +22,8 @@
 # Example:
 #   Call:    first_element([1, 2, 3])
 #   Returns: 1
+def first_element(list_1):
+    return list_1[0]
 
 
 
@@ -31,6 +33,8 @@
 # Example:
 #   Call:    second_element([1, 2, 3])
 #   Returns: 2
+def second_element(list_1):
+    return list_1[1]
 
 
 
@@ -40,6 +44,8 @@
 # Example:
 #   Call:    last_element([1, 2, 3])
 #   Returns: 3
+def last_element(list_1):
+    return list_1[-1]
 
 
 
@@ -49,7 +55,8 @@
 # Example:
 #   Call:    first_two_elements([1, 2, 3])
 #   Returns: [1, 2]
-
+def first_two_elements(list_1):
+    return list_1[0:2]
 
 
 # Method name: first_three_elements
@@ -58,6 +65,8 @@
 # Example:
 #   Call:    first_three_elements([1, 2, 3, 4])
 #   Returns: [1, 2, 3]
+def first_three_elements(list_1):
+    return list_1[0:3]
 
 
 
@@ -68,6 +77,12 @@
 #   Call:    total([1, 2, 3])
 #   Returns: 6
 
+def total(list_1):
+    return sum(list_1)
+
+
+
+
 
 
 # Method name: lowest_number
@@ -76,6 +91,12 @@
 # Example:
 #   Call:    lowest_number([4, 2, 6])
 #   Returns: 2
+def lowest_number(list_1):
+    list_1.sort()
+    return list_1[0]
+
+
+    
 
 
 
@@ -85,6 +106,9 @@
 # Example:
 #   Call:    highest_number([4, 6, 2])
 #   Returns: 6
+def highest_number(list_1):
+    list_1.sort()
+    return list_1[-1]
 
 
 
@@ -94,6 +118,8 @@
 # Example:
 #   Call:    the_beatles()
 #   Returns: ['john', 'paul', 'george', 'ringo']
+def the_beatles():
+    return ['john', 'paul', 'george', 'ringo']
 
 
 
@@ -103,6 +129,8 @@
 # Example:
 #   Call:    i_joined_the_beatles('yoko')
 #   Returns: ['john', 'paul', 'george', 'ringo', 'yoko']
+def i_joined_the_beatles(string_1):
+    return ['john', 'paul', 'george', 'ringo',string_1]
 
 
 
@@ -112,7 +140,8 @@
 # Example:
 #   Call:    we_joined_the_beatles(['yoko', 'stuart'])
 #   Returns: ['john', 'paul', 'george', 'ringo', 'yoko', 'stuart']
-
+def we_joined_the_beatles(list_1):
+    return ['john', 'paul', 'george', 'ringo'] + list_1
 
 
 # Method name: remove_nones_from_list
@@ -122,6 +151,14 @@
 #   Call:    remove_nones_from_list([1, None, 2, None, 3])
 #   Returns: [1, 2, 3]
 
+def remove_nones_from_list(list_1):
+    return_list = []
+    for items in list_1:
+        if items == None:
+            pass
+        else:
+            return_list.append(items)
+    return return_list
 
 
 # Method name: double_list
@@ -130,6 +167,8 @@
 # Example:
 #   Call:    double_list([1, 2, 3])
 #   Returns: [1, 2, 3, 1, 2, 3]
+def double_list(list_1):
+    return list_1 + list_1
 
 
 
@@ -140,6 +179,10 @@
 #   Call:    unique_elements([1, 2, 1, 3, 2, 3])
 #   Returns: [1, 2, 3]
 
+def unique_elements(list_1):
+    new_list = set(list_1)
+    return new_list
+
 
 
 # Method name: add_to_list
@@ -148,6 +191,9 @@
 # Example:
 #   Call:    add_to_list(["a", "b", "c"], "d")
 #   Returns: ["a", "b", "c", "d"]
+def add_to_list(list_1,element_1):
+    temp_list = [element_1]
+    return list_1 + temp_list 
 
 
 
@@ -161,7 +207,10 @@
 #   Call:    new_band_member({"bass": "flea"})
 #   Returns: {"vocalist": "miss piggy", "lead_guitar": "scooter", "bass": "flea"}
 
-
+def new_band_member(dict_1):
+    dict_2 = {"vocalist": "miss piggy", "lead_guitar": "scooter"}
+    return{**dict_2,**dict_1}
+    
 
 # Method name: all_values
 # Purpose: returns a list of all the values in the given dictionary
@@ -169,7 +218,8 @@
 # Example:
 #   Call:    all_values({"a": 1, "b": 2, "c": 3})
 #   Returns: [1, 2, 3]
-
+def all_values(dict):
+    return dict.values()
 
 
 # Method name: all_keys
@@ -178,7 +228,8 @@
 # Example:
 #   Call:    all_keys({"a": 1, "b": 2, "c": 3})
 #   Returns: ["a", "b", "c"]
-
+def all_keys(dict):
+    return dict.keys()
 
 
 # Method name: remove_nones_from_dictionary
@@ -188,6 +239,14 @@
 #   Call:    remove_nones_from_dictionary({"a": 1, "b": None, "c": 3})
 #   Returns: {"a": 1, "c": 3}
 
+def remove_nones_from_dictionary(dict):
+    dict_2 = {}
+    for i in dict:
+        if dict[i] == None:
+            pass
+        else:
+            dict_2[i] = dict[i]
+    return dict_2
 
 
 
@@ -197,4 +256,11 @@
 # Example:
 #   Call:    touch_in('Aldgate East', '2022/01/30 17:12')
 #   Returns: {'entrypoint': 'Aldgate East', 'time': '2022/01/30 17:12'}
+
+
+def touch_in(string1,string2):
+    dict = {}
+    dict["entrypoint"] = string1
+    dict["time"] = string2
+    return dict
 
