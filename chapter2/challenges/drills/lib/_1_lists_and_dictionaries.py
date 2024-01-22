@@ -152,13 +152,13 @@ def we_joined_the_beatles(list_1):
 #   Returns: [1, 2, 3]
 
 def remove_nones_from_list(list_1):
-    return_list = []
-    for items in list_1:
-        if items == None:
-            pass
-        else:
-            return_list.append(items)
-    return return_list
+    for item in list_1[::-1]:
+        if item == None:
+            list_1.remove(item)
+    return(list_1)
+    
+
+print(remove_nones_from_list([None,None,None,None,None,None,None]))
 
 
 # Method name: double_list
