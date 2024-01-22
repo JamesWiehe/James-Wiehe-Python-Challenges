@@ -20,6 +20,8 @@
 # Example:
 #   Call:    fourth_element([1, 2, 3, 4, 5])
 #   Returns: 4
+def fourth_element(list1):
+    return list1[3]
 
 
 
@@ -29,7 +31,9 @@
 # Example:
 #   Call:    average([3, 1, 44, 1])
 #   Returns: 12.25
-
+from statistics import mean
+def average(list1):
+    return mean(list1)
 
 
 # Method name: lowest_squared
@@ -38,7 +42,9 @@
 # Example:
 #   Call:    lowest_squared([5, 3, 44, 7])
 #   Returns: 9
-
+def lowest_squared(list1):
+    list1.sort()
+    return list1[0]**2
 
 
 # Method name: highest_squared
@@ -48,6 +54,11 @@
 #   Call:    highest_squared([5, 3, 44, 7])
 #   Returns: 1936
 
+def highest_squared(list1):
+    list1.sort()
+    return list1[-1]**2
+
+
 
 
 # Method name: starts_with_a
@@ -56,7 +67,8 @@
 # Example:
 #   Call:    starts_with_a(['banana', 'apple', 'orange', 'avocado'])
 #   Returns: ['apple', 'avocado']
-
+def starts_with_a(list1):
+    return([fruit for fruit in list1 if fruit[0] == "a"])
 
 
 # Method name: starts_with_a_vowel
@@ -65,6 +77,10 @@
 # Example:
 #   Call:    starts_with_a_vowel(['banana', 'apple', 'orange', 'avocado'])
 #   Returns: ['apple', 'orange', 'avocado']
+def starts_with_a_vowel(list1):
+    char_list = ["a","e","i","o","u"]
+    return([fruit for fruit in list1 if any(i in fruit[0] for i in char_list)])
+
 
 
 
@@ -74,6 +90,8 @@
 # Example:
 #   Call:    reverse_each_element(['one', 'two'])
 #   Returns: ['eno', 'owt']
+def reverse_each_element(list1):
+    return([i[::-1] for i in list1])
 
 
 
@@ -81,9 +99,14 @@
 # Purpose: returns the list, sorted by the last letter alphabetically
 # Arguments: one list
 # Example:
-#   Call:    sort_by_last_letter(['banana', 'apple', 'carrot', 'avocado'])
+#   Call:    sort_by_last_letter(['banana', 'appl', 'carrot', 'avocado'])
 #   Returns: ['banana', 'apple', 'avocado', 'carrot']
-
+def sort_by_last_letter(list1):
+    new_list = [i[::-1] for i in list1]
+    new_list.sort()
+    new_list_2 = [i[::-1] for i in new_list]
+    return new_list_2
+    
 
 
 # Method name: greater_than_5
@@ -92,6 +115,8 @@
 # Example:
 #   Call:    greater_than_5([9, 3, 44, 7])
 #   Returns: [9, 44, 7]
+def greater_than_5(list1):
+    return([i for i in list1 if i > 5])
 
 
 
@@ -101,7 +126,8 @@
 # Example:
 #   Call:    greater_than([9, 3, 6, 44, 7, 7], 6)
 #   Returns: [9, 44, 7, 7]
-
+def greater_than(list1,num1):
+    return([i for i in list1 if i > num1])
 
 
 # Method name: less_than
@@ -110,6 +136,8 @@
 # Example:
 #   Call:    less_than([9, 3, 6, 44, 1, 7, 7], 6)
 #   Returns: [3, 1]
+def less_than(list1,num1):
+    return([i for i in list1 if i < num1])
 
 
 
@@ -119,6 +147,8 @@
 # Example:
 #   Call:    words_shorter_than(['banana', 'apple', 'orange', 'nut', 'avocado'], 6)
 #   Returns: ['apple', 'nut']
+def words_shorter_than(list1,num1):
+    return([i for i in list1 if len(i) < num1])
 
 
 
@@ -130,6 +160,8 @@
 #   Returns: False
 #   Call:    all_above([9, 3, 6, 44, 1, 7, 7], 0)
 #   Returns: True
+def all_above(list1,num1):
+    return(all(i > num1 for i in list1))
 
 
 
@@ -141,7 +173,8 @@
 #   Returns: False
 #   Call:    all_below([9, 3, 6, 44, 1, 7, 7], 100)
 #   Returns: True
-
+def all_below(list1,num1):
+    return(all(i < num1 for i in list1))
 
 
 # Method name: multiply_each_by
@@ -150,6 +183,9 @@
 # Example:
 #   Call:    multiply_each_by([9, 3, 6, 44, 1, 7, 7], 2)
 #   Returns: [18, 6, 12, 88, 2, 14, 14]
+def multiply_each_by(list1,num1):
+    return([i*num1 for i in list1])
+
 
 
 
@@ -162,6 +198,9 @@
 #   Call:    values_summed({'cat': 4, 'person': 2, 'centipede': 100})
 #   Returns: 106
 
+def values_summed(dict1):
+    return(sum(dict1.values()))
+
 
 
 # Method name: add_key_value_pair
@@ -170,7 +209,9 @@
 # Example:
 #   Call:    add_key_value_pair({'cat': 4, 'person': 2, 'centipede': 100}, 'dog', 4)
 #   Returns: {'cat': 4, 'person': 2, 'centipede': 100, 'dog': 4}
-
+def add_key_value_pair(dict1,key1,value1):
+    dict1.update({key1:value1})
+    return dict1
 
 
 # Method name: remove_key_value_pair
@@ -179,6 +220,10 @@
 # Example:
 #   Call:    remove_key_value_pair({'cat': 4, 'person': 2, 'centipede': 100}, 'cat')
 #   Returns: {'person': 2, 'centipede': 100}
+def remove_key_value_pair(dict1,value1):
+    dict1.pop(value1)
+    return(dict1)
+
 
 
 
@@ -189,7 +234,9 @@
 #   Call:    where_value_below({'cat': 4, 'person': 2, 'centipede': 100}, 5)
 #   Returns: {'cat': 4, 'person': 2}
 
-
+def where_value_below(dict1,num1):
+    return{k:v for (k,v) in dict1.items() if v < num1}
+    
 
 # Method name: where_key_starts_with
 # Purpose: returns key value pairs where the key starts with the letter provided
@@ -197,5 +244,8 @@
 # Example:
 #   Call:    where_key_starts_with({'cat': 4, 'person': 2, 'centipede': 100}, 'c')
 #   Returns: {'cat': 4, 'centipede': 100}
+
+def where_key_starts_with(dict1,letter1):
+    return{k:v for (k,v) in dict1.items() if k[0] == letter1}
 
 
