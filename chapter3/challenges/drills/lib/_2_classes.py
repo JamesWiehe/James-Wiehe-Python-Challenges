@@ -34,7 +34,15 @@
 #     def say_goodbye(self):
 #         return 'Goodbye, ' + self.name + '!'
 
+class ExampleGreeter():
+    def __init__(self,name):
+        self.name = name
+    
+    def say_hello(self):
+        return(f"Hello ,{self.name}")
 
+    def say_goodbye(self):
+        return(f"Goodbye,{self.name}")
 
 # == EXERCISES ==
 
@@ -64,7 +72,16 @@
 #   > greeter.good_morning('Bobby')
 #   'Good morning, Bobby!'
 
-
+class Greeter():
+    
+    def hello(self,name):
+        return(f"Hello, {name}!")
+    def goodbye(self,name):
+        return(f"Goodbye, {name}!")
+    def good_night(self,name):
+        return(f"Good night, {name}!")
+    def good_morning(self,name):
+        return(f"Good morning, {name}!")
 
 # Class name: Basket
 # Purpose: store a list of items
@@ -85,7 +102,13 @@
 #   > basket.list_items()
 #   ['apple', 'banana', 'orange']
 
-
+class Basket():
+    def __init__(self):
+        self.basket = []
+    def add(self,item):
+        self.basket.append(item)
+    def list_items(self):
+        return(self.basket)
 
 # Class name: Calculator
 # Purpose: perform simple calculations and track the history
@@ -119,7 +142,27 @@
 #   0.875
 #   > calculator.list_history()
 #   [3, 12, -1, 0.875]
-
+class Calculator():
+    
+    def __init__(self):
+        self.hist_list = []
+        
+    def add(self,num1,num2):
+        self.hist_list.append(num1+num2)
+        return num1+num2
+    def multiply(self,num1,num2):
+        self.hist_list.append(num1*num2)
+        return num1*num2
+    def subtract(self,num1,num2):
+        self.hist_list.append(num1-num2)
+        return num1-num2
+    def divide(self,num1,num2):
+        self.hist_list.append(num1/num2)
+        return num1/num2
+    def list_history(self):
+        return(self.hist_list)
+        
+        
 
 
 # Class name: Cohort
@@ -145,7 +188,20 @@
 #   [{'name' : 'Jo', 'employer' : 'NASA'}, {'name' : 'Alex', 'employer' : 'NASA'}, {'name' : 'Bobby', 'employer' : 'Google'}]
 #   > cohort.list_employed_by('NASA')
 #   [{'name' : 'Jo', 'employer' : 'NASA'}, {'name' : 'Alex', 'employer' : 'NASA'}]
+    
+class Cohort():
 
+    def __init__(self):
+        self.person_list = []
+
+    def add_student(self,dict_input):
+        self.person_list.append(dict_input)
+        
+    def list_students(self):
+        return self.person_list
+    
+    def list_employed_by(self,name):
+        return [{k:v for k,v in i.items()} for i in self.person_list if i['employer'] == name]
 
 
 # Class name: Person
@@ -181,5 +237,27 @@
 #   '10 South Street'
 #   > person.get_pets()
 #   'Alex has 3 pets: a cat called Arthur, a dog called Judith, a goldfish called Gwen'
+
+
+class Person():
+
+    def __init__(self,dict_complex):
+        self.complex = dict_complex
+
+    def get_work_address(self):
+        return((self.complex["addresses"][0])['building'] + ' ' + (self.complex["addresses"][0])['street'])
+    def get_home_address(self):
+        return((self.complex["addresses"][1])['building'] + ' ' + (self.complex["addresses"][1])['street'])
+
+    def get_pets(self):
+        return((self.complex['name']) + ' has 3 pets: a ' + (self.complex["pets"][0])['animal'] + ' called ' + (self.complex["pets"][0])['name'] + ', a ' + (self.complex["pets"][1])['animal'] + ' called ' + (self.complex["pets"][1])['name'] + ', a ' + (self.complex["pets"][2])['animal'] + ' called ' + (self.complex["pets"][2])['name'])
+
+
+
+#
+
+
+
+
 
 

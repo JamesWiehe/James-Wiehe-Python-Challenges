@@ -19,8 +19,14 @@
 
 def is_valid(password):
     sym_list = ["!","@","$","%","&"]
-    if len(password) > 7 and any(i in password for i in sym_list):
+    if len(password) > 7 and any(i in sym_list for i in password):
+        print("wow")
         return True
+        
     else:
+        print("fail")
         return False
-
+        
+    
+is_valid("passworddjgv")
+        

@@ -60,5 +60,15 @@ class PasswordManager():
     def list_services(self):
         return self.password_dict.keys()
     
-    
+
+
+password_manager = PasswordManager()
+password_manager.add('gmail', '12ab5!678')   # Valid password
+password_manager.add('facebook', '$abc1234') # Valid password
+password_manager.add('twitter', '12345678')  # Invalid password, so ignored
+password_manager.get_for_service('facebook')
+password_manager.get_for_service('not_real')
+password_manager.get_for_service('twitter')
+print(password_manager.list_services())
+
 

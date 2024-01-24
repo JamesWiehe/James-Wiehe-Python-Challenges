@@ -69,4 +69,43 @@
 
 from datetime import datetime
 class PasswordManager2():
-    pass
+    
+    
+    def __init__(self):
+        self.pw_dict = {}
+        self.length_test = lambda password:True if len(password) > 7 else False
+        self.symbol_test = lambda password: True if any(i in ["!","@","$","%","&"] for i in password) else False
+        self.duplicate_test = lambda password:False if any({k:v for k,v in self.pw_dict.items() if v['password'] == password}) else True
+
+    def add(self,service,password):
+        
+        if self.length_test(password) and self.symbol_test(password) and self.duplicate_test(password):
+            self.pw_dict[service] = {"password":password , "datetime":datetime.now()}
+
+    def get_for_service(self,service):
+        if service in self.pw_dict:
+            return self.pw_dict[service]['password']
+        
+    def list_services(self):
+        return(list(self.pw_dict.keys()))
+            
+    def remove(self,service):
+        self.pw_dict.pop(service)
+
+    def update(self,service,password):
+        if service in self.pw_dict and self.length_test(password) and self.symbol_test(password) and self.duplicate_test(password):
+            self.pw_dict[service]['password'] = password
+
+    def sort_services_by(self,argument,reverse = ''):
+        if reverse == 'reverse':
+            list1 = (sorted([i for i in (self.pw_dict.keys()) if argument == "service"])) or ({k for k,v in sorted(self.pw_dict.items(), key=lambda item:'datetime', reverse=True) if argument == 'added_on'})
+            return list(list1)[::-1]
+        else:
+            list1 = (sorted([i for i in (self.pw_dict.keys()) if argument == "service"])) or ({k for k,v in sorted(self.pw_dict.items(), key=lambda item:'datetime') if argument == 'added_on'})
+            return list(list1)
+        
+
+
+pwmanager = PasswordManager2()
+pwmanager.add("facebook","password!!!!!")
+print(pwmanager.pw_dict)
