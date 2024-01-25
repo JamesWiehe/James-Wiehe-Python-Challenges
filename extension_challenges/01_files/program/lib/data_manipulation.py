@@ -24,7 +24,18 @@ import os
 # Notes:
 # * Use the already imported "os" module to check whether a given filename exists
 def does_file_exist(filename):
-    pass
+    
+    os(filename)
+    try:
+        open(filename)
+        return True
+    except:
+        return False
+    
+
+
+
+
 
 # Purpose: get the contents of a given file and return them; if the file cannot be
 # found, return a nice error message instead
@@ -42,7 +53,12 @@ def does_file_exist(filename):
 # * Use readlines() to read the contents
 # * Use should use does_file_exist()
 def get_file_contents(filename):
-    pass
+    try:
+        data = open(filename)
+        return (data.read())
+    except:
+        return("This file cannot be found!")
+
 
 # Purpose: fetch Christmas Day (25th December) air quality data rows, and if
 # boolean argument "include_header_row" is True, return the first header row

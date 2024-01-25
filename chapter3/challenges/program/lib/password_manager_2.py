@@ -76,6 +76,7 @@ class PasswordManager2():
         self.length_test = lambda password:True if len(password) > 7 else False
         self.symbol_test = lambda password: True if any(i in ["!","@","$","%","&"] for i in password) else False
         self.duplicate_test = lambda password:False if any({k:v for k,v in self.pw_dict.items() if v['password'] == password}) else True
+        self.service_sort = lambda argument: list((sorted([i for i in (self.pw_dict.keys()) if argument == "service"])) or ({k:v for k,v in sorted(self.pw_dict.items(), key=lambda datetime:datetime[1]['datetime']) if argument == 'added_on'}))
 
     def add(self,service,password):
         
@@ -98,14 +99,11 @@ class PasswordManager2():
 
     def sort_services_by(self,argument,reverse = ''):
         if reverse == 'reverse':
-            list1 = (sorted([i for i in (self.pw_dict.keys()) if argument == "service"])) or ({k for k,v in sorted(self.pw_dict.items(), key=lambda item:'datetime', reverse=True) if argument == 'added_on'})
-            return list(list1)[::-1]
+            return self.service_sort(argument)[::-1]
         else:
-            list1 = (sorted([i for i in (self.pw_dict.keys()) if argument == "service"])) or ({k for k,v in sorted(self.pw_dict.items(), key=lambda item:'datetime') if argument == 'added_on'})
-            return list(list1)
+            return self.service_sort(argument)
         
 
 
-pwmanager = PasswordManager2()
-pwmanager.add("facebook","password!!!!!")
-print(pwmanager.pw_dict)
+
+
