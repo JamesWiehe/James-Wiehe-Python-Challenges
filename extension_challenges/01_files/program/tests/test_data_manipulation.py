@@ -14,7 +14,7 @@ def test_does_file_exist():
 
 def test_get_file_contents():
     assert get_file_contents("doesnotexist") == "This file cannot be found!"
-    assert get_file_contents("AirQuality.csv")[0][:4] == "D"
+    assert get_file_contents("AirQuality.csv")[0][:4] == "Date"
 
 def test_christmas_day_air_quality():
     assert christmas_day_air_quality("AirQuality.csv", True)[0][:4] == "Date"

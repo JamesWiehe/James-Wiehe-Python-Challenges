@@ -102,15 +102,12 @@ class PasswordManager2():
         else:
             return self.service_sort(argument)
         
-
+import time
 password_manager = PasswordManager2()
-password_manager.add('baidu', '%12345678')
 password_manager.add('acebook', '$12345678')
-password_manager.add('makersbnb', '@12345678')
-
+time.sleep(3)
+password_manager.add('makersbnb', '123456789!')
+password_manager.add('baidu', '!@$%dsvds&')
 print(password_manager.pw_dict)
-        
-
-
-
-
+# print(password_manager.list_services())
+# print(password_manager.sort_services_by('added_on'))
