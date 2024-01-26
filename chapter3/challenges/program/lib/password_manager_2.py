@@ -77,9 +77,8 @@ class PasswordManager2():
         self.symbol_test = lambda password: True if any(i in ["!","@","$","%","&"] for i in password) else False
         self.duplicate_test = lambda password:False if any({k:v for k,v in self.pw_dict.items() if v['password'] == password}) else True
         self.service_sort = lambda argument: list((sorted([i for i in (self.pw_dict.keys()) if argument == "service"])) or ({k:v for k,v in sorted(self.pw_dict.items(), key=lambda datetime:datetime[1]['datetime']) if argument == 'added_on'}))
-
-    def add(self,service,password):
         
+    def add(self,service,password):
         if self.length_test(password) and self.symbol_test(password) and self.duplicate_test(password):
             self.pw_dict[service] = {"password":password , "datetime":datetime.now()}
 
@@ -102,6 +101,14 @@ class PasswordManager2():
             return self.service_sort(argument)[::-1]
         else:
             return self.service_sort(argument)
+        
+
+password_manager = PasswordManager2()
+password_manager.add('baidu', '%12345678')
+password_manager.add('acebook', '$12345678')
+password_manager.add('makersbnb', '@12345678')
+
+print(password_manager.pw_dict)
         
 
 
